@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analysis Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .result-container {
+            text-align: center;
+        }
+        .diagnosis {
+            font-size: 24px;
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .diagnosis.pneumonia {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        .diagnosis.healthy {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .back-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .back-btn:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Analysis Result</h1>
+        <div class="diagnosis {% if diagnosis == 'Pneumonia' %}pneumonia{% else %}healthy{% endif %}">
+            Diagnosis: {{ diagnosis }}
+        </div>
+        <div class="image-container">
+            <img src="data:image/png;base64,{{ heatmap_image }}" alt="Analysis Result">
+        </div>
+        <a href="/" class="back-btn">Analyze Another Image</a>
+    </div>
+</body>
+</html> 
